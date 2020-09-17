@@ -112,3 +112,27 @@
 
   This pattern can tremendously decrease time complexity
   ```
+
+## 알고리즘에서 배우는 자바스크립트 문법들
+
+1. `arguments`객체
+
+- `arguments`객체는 함수내에서 사용이 가능하며, 알고리즘처럼 함수의 인자값을 사용자가 설정해야하는 경우, 매개변수 부분에 값을 별도로 지정안해도 함수 내에서 사용할 수 있게 지원하는 것 같다.
+
+- MDN의 공식적인 설명은 아래와 같다.
+
+- arguments 객체는 모든 함수 내에서 이용 가능한 지역 변수입니다.
+
+- arguments 객체를 사용하여 함수 내에서 모든 인수를 참조할 수 있으며, 호출할 때 제공한 인수 각각에 대한 항목을 갖고 있습니다.
+
+- 항목의 인덱스는 0부터 시작합니다.
+
+- [MDN arguments 객체 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/arguments)
+
+2. `Set` 객체
+
+- 사실상 파이썬의 set() 함수랑 사용하는 방법이 동일한데, 배열 또는 문자열 같이 여러개의 요소들을 갖고 있는 인자를 `new Set(args)` 형태로 넣으면 중복되는 값들을 지우고, 단일한 값만 남아서 사용할 수 있게 지원한다. 자바스크립트에도 Set과 관련한 기능이 있는 줄 전혀 몰랐던 팩트
+
+- 관련 메소드를 참고하는 글은 [MDN Set 객체 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Set)에 더 잘나와 있다.
+
+- 자바스크립트도 2달 정도 꾸준히 보다보니 이제 어느정도 이해력이 올라온 것 같다.

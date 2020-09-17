@@ -7,6 +7,7 @@ which accepts a sorted array, and count the unique values in the array.
 
 There can be negative numbers in the array, but it will always be sorted.
 */
+
 /*
 여기서도 포인터의 개념을 차용해서, 왼쪽과 오른쪽에서 배열을 탐색하는 형태의 값을 취하고 있다.
 i와 j가 왼쪽과 오른쪽에서 각 각 서칭하는 게 아니고 j가 시작하는 시점에서 i보다 한 칸 앞서 for loop를 순회하고 있다.
