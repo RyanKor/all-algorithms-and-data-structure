@@ -1,4 +1,12 @@
-# JS Algorithms and Data Structure Class
+# All Algorithms & Data Structures
+
+## 2020.12.22 업데이트 사항
+
+- Samsung SDS 알고리즘 학습을 위해 코딩 공부를 더 열심히 할 필요가 생겼다.
+
+- 최근 이유 없는 슬럼프가 왔었는데, 왜 이렇게 코딩을 하기 싫지 싶었는데, 목표가 없었다.
+
+- 끊임 없이 목표를 만들어서 발전시켜야 한다.
 
 ## 한 줄 강의 평가
 
