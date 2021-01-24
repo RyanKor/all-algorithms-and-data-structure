@@ -38,7 +38,7 @@ cnt = 0
 
 # print(cnt)
 
-# solution 2
+# solution 2 내 코드도 맞다. 어렵게 생각할 필요 없다.
 ############
 while True:
     if num > 9:
