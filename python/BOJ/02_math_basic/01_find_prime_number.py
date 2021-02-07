@@ -19,4 +19,15 @@ import sys
 test_case = int(sys.stdin.readline())
 cnt = 0
 
-prime_number = map(int, sys.stdin.readline.split())
+prime_number = list(map(int, sys.stdin.readline().split()))
+
+for i in prime_number:
+    count = 0
+    if i == 1:
+        continue
+    for j in range(2, i+1):
+        if i % j == 0:
+            count += 1
+    if count == 1:  # 이 코드를 추가 안하면, 반드시 에러가 발생한다.
+        cnt += 1
+print(cnt)
