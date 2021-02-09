@@ -1,4 +1,6 @@
 '''
+애초에 소수 문제를 판별하는 방법에 대해 문제 설명하는 부분에 사실 충분히 설명이 되어 있었다.
+- 2부터 X-1까지 모두 나눠서 X가 소수인지 판별하는 문제 1
 문제
 주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력하는 프로그램을 작성하시오.
 
@@ -24,7 +26,8 @@ prime_number = list(map(int, sys.stdin.readline().split()))
 for i in prime_number:
     count = 0
     if i == 1:
-        continue
+        pass
+    # 여기서 중요한 건, 해당 수까지의 범위에 있는 자연수를 대조하면서, (1은 제외) 값을 찾는 것이다.
     for j in range(2, i+1):
         if i % j == 0:
             count += 1
