@@ -11,4 +11,24 @@
 
 출력
 상근이가 배달하는 봉지의 최소 개수를 출력한다. 만약, 정확하게 N킬로그램을 만들 수 없다면 -1을 출력한다.
+
+* 이제는 할 수 있다. 이 문제는 그리디 알고리즘 작동 원리와 동일하다. *
 '''
+import sys
+
+num = int(sys.stdin.readline())
+
+result = 0
+
+
+# 탐욕 기법이랑 접근하는 방식이 거의 일치한다
+while True:
+    if (num % 5) == 0:
+        result += (num//5)
+        print(result)
+        break
+    num -= 3
+    result += 1
+    if num < 0:
+        print(-1)
+        break

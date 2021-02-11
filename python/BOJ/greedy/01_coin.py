@@ -11,6 +11,8 @@
 
 출력
 첫째 줄에 K원을 만드는데 필요한 동전 개수의 최솟값을 출력한다.
+
+*처음으로 탐욕 알고리즘 기법을 아무 정답도 안찾아보고 풀어볼 수 있게 되었다.*
 '''
 
 import sys
@@ -25,10 +27,11 @@ for i in range(test_case):
 while True:
     if coin_type[index] > total:
         pass
+        index -= 1
     else:
+        cnt = cnt + (total // coin_type[index])
         total = total % coin_type[index]
-        cnt += total // coin_type[index]
-    if total <= 0:
-        break
-    index -= 1
+
+        if total <= 0:
+            break
 print(cnt)
