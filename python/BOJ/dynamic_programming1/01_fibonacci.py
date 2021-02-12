@@ -16,12 +16,12 @@
 int fibonacci(int n) {
     if (n == 0) {
         printf("0");
-        return 0;
+        print() 0;
     } else if (n == 1) {
         printf("1");
-        return 1;
+        print() 1;
     } else {
-        return fibonacci(n‐1) + fibonacci(n‐2);
+        print() fibonacci(n‐1) + fibonacci(n‐2);
     }
 }
 fibonacci(3)을 호출하면 다음과 같은 일이 일어난다.
@@ -42,7 +42,35 @@ fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한
 
 출력
 각 테스트 케이스마다 0이 출력되는 횟수와 1이 출력되는 횟수를 공백으로 구분해서 출력한다.
+
+*문제 풀이시 주의사항*
+- 0, 1이 각 각 호출되는 순서는 피보나치 수열의 패턴으로 증가하게 된다.
+N : 0 1 2 3 4 5 6 7 (호출될 자연수)
+0 : 1 0 1 1 2 3 5 8
+1 : 0 1 1 2 3 5 8 13
 '''
 import sys
 
 num = int(sys.stdin.readline())
+
+
+def dynamic_fibonacci(n):
+    zero_count = [1, 0, 1]
+    one_count = [0, 1, 1]
+    if n == 0:
+        print(1, 0)  # 0은 1회, 1은 0회 호출
+    if n == 1:
+        print(0, 1)   # 0은 0회, 1은 1회 호출
+    if n == 2:
+        print(1, 1)
+
+    if n > 2:
+        for i in range(3, n+1):  # n 값까지 배열에 담아줘야하므로 범위는 n+1까지로 지정
+            zero_count.append(zero_count[i-1] + zero_count[i-2])
+            one_count.append(one_count[i-1]+one_count[i-2])
+        print(zero_count[n], one_count[n])
+
+
+for i in range(num):
+    test_case = int(sys.stdin.readline())
+    dynamic_fibonacci(test_case)
