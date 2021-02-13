@@ -40,23 +40,25 @@ w(-1, 7, 18) = 1
 - 이유야 많겠지만, 동적 프로그래밍의 경우 문제 풀이 시간이 초과되는 경우를 막고, 연산 속도를 높이기 때문이다.
 '''
 
-import sys
-while True:
-    a, b, c = map(int, sys.stdin.readline().split())
+# import sys
+# while True:
+#     a, b, c = map(int, sys.stdin.readline().split())
 
-    def function_run(a, b, c):
-        w = {}
-        if a <= 0 or b <= 0 or c <= 0:
-            return 'w({}, {}, {}) = {}'.format(a, b, c, 1)
-        elif a > 20 or b > 20 or c > 20:
-            return 'w({}, {}, {}) = {}'.format(a, b, c, w[20, 20, 20])
-    if a == -1 and b == -1 and c == -1:
-        break
-    print(function_run(a, b, c))
+
+# def function_run(a, b, c):
+#     w = {}
+#     if a <= 0 or b <= 0 or c <= 0:
+#         return 'w({}, {}, {}) = {}'.format(a, b, c, 1)
+#     elif a > 20 or b > 20 or c > 20:
+#         return 'w({}, {}, {}) = {}'.format(a, b, c, w[20, 20, 20])
+
+
+# if a == -1 and b == -1 and c == -1:
+#     break
+# print(function_run(a, b, c))
 
 
 # 0이 하나라도 섞인 값은 모두 1
 # w(1,1,1) = 2 -> w(0,1,1) + w(0,0,1) + w(0,1,0) = 1 + 1 + 1 = 3
 # w(2,2,2) = 4 -> w(1,2,2) + w(1,1,2) + w(1,2,1) = 2 + 2 + 2 = 6
 # w(3,3,3) = ? -> w[2,3,3] + w[2,2,3] + w[2,3,2] - w[2,2,2] =
-
