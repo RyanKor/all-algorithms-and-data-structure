@@ -14,4 +14,24 @@
 
 제한
 1 ≤ k, n ≤ 14
+
+1층 1,2,3호에 살기 위한 사람 수
+-> 1,3,6,10,15,21 (0층 i호에는 i명이 거주)
+
+2층 1,2,3호에 살기 위한 사람 수
+-> 1,4,10,20,35,56
+3층 1,2,3호에 살기 위한 사람 수
+-> 1,5,15,35,70,126
 '''
+import sys
+
+t = int(sys.stdin.readline())
+
+for _ in range(t):
+    floor = int(sys.stdin.readline())  # 층
+    num = int(sys.stdin.readline())  # 호
+    f0 = [x for x in range(1, num+1)]  # 0층 리스트
+    for k in range(floor):  # 층 수 만큼 반복
+        for i in range(1, num):  # 1 ~ n-1까지 (인덱스로 사용)
+            f0[i] += f0[i-1]  # 층별 각 호실의 사람 수를 변경
+    print(f0[-1])  # 가장 마지막 수 출력
