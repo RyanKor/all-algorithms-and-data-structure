@@ -9,7 +9,7 @@ function maxSubArraySum(arr, num) {
   tempSum = maxSum;
   for (let i = num; i < arr.length; i++) {
     tempSum = tempSum - arr[i - num] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
+    maxSum = Math.max(maxSum, tempSum); // 자바스크립트에서 최댓값을 비교하는 연산 시, 적용
     console.log(tempSum, maxSum);
   }
   return maxSum;
