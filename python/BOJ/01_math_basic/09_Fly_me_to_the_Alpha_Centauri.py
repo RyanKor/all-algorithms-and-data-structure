@@ -15,4 +15,22 @@
 
 출력
 각 테스트 케이스에 대해 x지점으로부터 y지점까지 정확히 도달하는데 필요한 최소한의 공간이동 장치 작동 횟수를 출력한다.
+
+이 문제는 지금 내 실력으로 풀기가 어려워서, 정답을 보고 풀게 되었다. 아직 완벽하게 이해되지는 않지만, 좀 더 내 코드로 소화가 필요하다.
 '''
+import sys
+t = int(sys.stdin.readline())
+for i in range(t):
+    a, b = map(int, sys.stdin.readline().split())
+    c = b - a
+    num = 1
+    while True:
+        if num ** 2 <= c < (num + 1) ** 2:
+            break
+        num += 1
+    if num ** 2 == c:
+        print((num * 2) - 1)
+    elif num ** 2 < c <= num ** 2 + num:
+        print(num * 2)
+    else:
+        print((num * 2) + 1)
