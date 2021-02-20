@@ -24,7 +24,7 @@ a, b = map(int, sys.stdin.readline().split())
 
 
 def gdc(x, y):
-    while y:
+    while y > 0:
         x, y = y, x % y
     return x
 
