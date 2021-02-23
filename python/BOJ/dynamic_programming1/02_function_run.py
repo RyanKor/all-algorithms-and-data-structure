@@ -38,27 +38,40 @@ w(-1, 7, 18) = 1
 * 문제 풀이 시, 유의사항 *
 - 문제 풀이 중에 재귀함수가 떠오른다면, 아마 많은 경우에 동적 프로그래밍을 통해 문제를 풀어야할 것이다
 - 이유야 많겠지만, 동적 프로그래밍의 경우 문제 풀이 시간이 초과되는 경우를 막고, 연산 속도를 높이기 때문이다.
+
+재귀함수를 사용해야할 때 이것을 메모이제이션 하는 방법을 묻는 문제
 '''
 
-# import sys
-# while True:
-#     a, b, c = map(int, sys.stdin.readline().split())
+MAX = 21
+dp = [[[0]*MAX for _ in range(MAX)] for __ in range(MAX)]
 
 
-# def function_run(a, b, c):
-#     w = {}
-#     if a <= 0 or b <= 0 or c <= 0:
-#         return 'w({}, {}, {}) = {}'.format(a, b, c, 1)
-#     elif a > 20 or b > 20 or c > 20:
-#         return 'w({}, {}, {}) = {}'.format(a, b, c, w[20, 20, 20])
+def w(a, b, c):
+    if a <= 0 or b <= 0 or c <= 0:
+        return 1
+    if a > 20 or b > 20 or c > 20:
+        return w(20, 20, 20)
+
+    # 값이 이미 존재한다면 그 값을 바로 리턴.
+    if dp[a][b][c]:
+        return dp[a][b][c]
+
+    if a < b < c:
+        dp[a][b][c] = w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c)
+        return dp[a][b][c]
+
+    dp[a][b][c] = w(a-1, b, c) + w(a-1, b-1, c) + \
+        w(a-1, b, c-1) - w(a-1, b-1, c-1)
+    return dp[a][b][c]
 
 
-# if a == -1 and b == -1 and c == -1:
-#     break
-# print(function_run(a, b, c))
+while True:
 
+    a, b, c = map(int, input().split())
 
-# 0이 하나라도 섞인 값은 모두 1
-# w(1,1,1) = 2 -> w(0,1,1) + w(0,0,1) + w(0,1,0) = 1 + 1 + 1 = 3
-# w(2,2,2) = 4 -> w(1,2,2) + w(1,1,2) + w(1,2,1) = 2 + 2 + 2 = 6
-# w(3,3,3) = ? -> w[2,3,3] + w[2,2,3] + w[2,3,2] - w[2,2,2] =
+    if a == -1 and b == -1 and c == -1:
+        break
+
+    print("w(%d, %d, %d) = %d" % (a, b, c, w(a, b, c)))
+
+print(dp)
