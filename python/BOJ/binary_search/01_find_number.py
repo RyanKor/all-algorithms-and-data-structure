@@ -25,7 +25,7 @@ N = int(sys.stdin.readline())
 A = list(map(int, sys.stdin.readline().split()))
 M = int(sys.stdin.readline())
 M_list = list(map(int, sys.stdin.readline().split()))
-A = sorted(A)
+A = sorted(A)  # 이분 탐색은 반드시 정렬이 되어 있어야 목표로 하는 요소 값을 찾는 것에 시간이 적게 사용된다.
 
 for m in M_list:
     if BinarySearch(A, m, 0, N-1):
