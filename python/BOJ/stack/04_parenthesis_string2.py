@@ -22,4 +22,39 @@
 '''
 
 import sys
-test_case = list(sys.stdin.readline().split('.'))
+
+while True:
+    test_case = sys.stdin.readline().rstrip()
+    if test_case == ".":
+        break
+    parenthesis = []
+    result = True
+
+    for j in test_case:
+        if j == "(" or j == "[":
+            parenthesis.append(j)
+
+        elif j == ")":
+            if len(parenthesis) == 0:
+                result = False
+                break
+            if parenthesis[-1] == "(":
+                parenthesis.pop()
+            else:
+                result = False
+                break
+
+        elif j == "]":
+            if len(parenthesis) == 0:
+                result = False
+                break
+            if parenthesis[-1] == "[":
+                parenthesis.pop()
+            else:
+                result = False
+                break
+
+    if result and not parenthesis:
+        print("yes")
+    else:
+        print("no")

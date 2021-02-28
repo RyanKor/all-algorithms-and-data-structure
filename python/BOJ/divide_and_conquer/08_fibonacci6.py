@@ -17,9 +17,9 @@ n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작
 첫째 줄에 n번째 피보나치 수를 1,000,000,007으로 나눈 나머지를 출력한다.
 '''
 
-import sys
+# import sys
 
-num = int(sys.stdin.readline())
+# num = int(sys.stdin.readline())
 
 
 # 동적 프로그래밍 -> 메모리 초과
@@ -39,13 +39,50 @@ num = int(sys.stdin.readline())
 
 
 # recursion function -> 메모리 초과
-def Fibonacci(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
+# def Fibonacci(n):
+#     if n == 0:
+#         return 0
+#     elif n == 1:
+#         return 1
+#     else:
+#         return Fibonacci(n-1)+Fibonacci(n-2)
+
+
+# print(Fibonacci(num) % 1000000007)
+
+import sys
+input = sys.stdin.readline()
+p = 1000000007
+# 제곱을 구하는 분할정복
+
+
+def power(adj, n):
+    if n == 1:
+        return adj
+    elif n % 2:
+        return multi(power(adj, n-1), adj)
     else:
-        return Fibonacci(n-1)+Fibonacci(n-2)
+        return power(multi(adj, adj), n//2)
+# 행렬의 곱셈
 
 
-print(Fibonacci(num) % 1000000007)
+def multi(a, b):
+    temp = [[0]*len(b[0]) for _ in range(2)]
+    for i in range(2):
+        for j in range(len(b[0])):
+            sum = 0
+            for k in range(2):
+                sum += a[i][k]*b[k][j]
+            temp[i][j] = sum % p
+    return temp
+
+
+# 초기 행렬
+adj = [[1, 1], [1, 0]]
+# 피보나치 초기값
+start = [[1], [1]]
+n = int(input)
+if n < 3:
+    print(1)
+else:
+    print(multi(power(adj, n-2), start)[0][0])
