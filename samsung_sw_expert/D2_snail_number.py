@@ -44,13 +44,13 @@ for test_case in range(1, 1 + T):
     print('#{}'.format(test_case))
     N = int(input())
     my_map = [[0] * N for _ in range(N)]
-    dx = [1, 0, -1, 0]
+    dx = [-1, 0, 1, 0]
     dy = [0, 1, 0, -1]
     ori = 0
     y = x = 0
     for i in range(1, 1 + N ** 2):
-        my_map[y][x] = i
-        if 0 <= y+dy[ori] < N and 0 <= x+dx[ori] < N and my_map[y+dy[ori]][x+dx[ori]] == 0:
+        my_map[x][y] = i
+        if 0 <= y+dy[ori] < N and 0 <= x+dx[ori] < N and my_map[x+dx[ori]][y+dy[ori]] == 0:
             y += dy[ori]
             x += dx[ori]
         else:
