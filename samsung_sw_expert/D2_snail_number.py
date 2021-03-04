@@ -44,9 +44,9 @@ for test_case in range(1, 1 + T):
     print('#{}'.format(test_case))
     N = int(input())
     my_map = [[0] * N for _ in range(N)]
-    dx = [-1, 0, 1, 0]
-    dy = [0, 1, 0, -1]
-    ori = 0
+    dx = [-1, 0, 1, 0] # 좌, 상, 우, 하 - x축
+    dy = [0, 1, 0, -1] # 좌, 상, 우, 하 - y축
+    ori = 0 # 방향 뒤집기
     y = x = 0
     for i in range(1, 1 + N ** 2):
         my_map[x][y] = i
