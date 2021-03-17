@@ -24,10 +24,15 @@ def solution(k, room_number):
     for i in room_number:
         n = i
         visit = [n]
-        while n in dic:
+        # print(visit)
+        while n in dic: # 이미 지나온 경로 탐색하기
             n = dic[n]
             visit.append(n)
+            print(dic)
+            print(visit)
         answer.append(n)
         for j in visit:
             dic[j] = n +1
     return answer
+
+print(solution(10, [1,3,4,1,3,1]))

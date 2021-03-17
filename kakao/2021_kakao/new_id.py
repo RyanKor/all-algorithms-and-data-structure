@@ -103,7 +103,7 @@ def solution(new_id):
     dot = re.sub('\.{2,}', '.', text) # 3단계 -> 에러 없음
     dot = re.sub('^\.|\.$', '', dot) # 4단계 -> 에러 없음
     if dot == '': # 5단계 -> 여기서 버그 발생
-        dot +='a' * len(new_id) # 왜 여기 코드가 dot += 'a' 로 하면 틀리지? -> dot = 'a' if dot == '' else dot
+        dot +='a'  # 왜 여기 코드가 dot += 'a' * len(new_id) 로 하면 틀리지? -> 문자 길이가 3 이하일 땐, 알아서 마지막 문자를 뒤에 추가해준다. (정답 : dot = 'a' if dot == '' else dot)
     if len(dot) > 15: # 6단계
         dot = dot[:15]
         if dot[-1] == '.':

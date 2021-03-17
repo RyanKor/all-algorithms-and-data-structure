@@ -49,13 +49,8 @@ for i in range(1, T+1):
     temp = 0
     for i in range(N):
         result.append(list(map(int,input().split())))
-    
+
     for i in range(N):
         for j in range(i+1,N):
-            if temp < result[i][j] + result[i+1][j] + result[i][j+1] + result[i+1][j+1]:
-                temp = result[i][j] + result[i+1][j] + result[i][j+1] + result[i+1][j+1]
-
-            if i+1 == N or j+1 == N:
-                break
 
     print(temp)
