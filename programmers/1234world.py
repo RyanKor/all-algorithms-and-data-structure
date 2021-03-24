@@ -10,18 +10,29 @@ def solution(n):
                 (27 == 3 ** 3)
     십진법 수의 범위 : 1 ~ 3, 4 ~ 12, 13 ~ 40, 41 ~ 122
     124나라 수의 범위 : 3^0 ~ 3^1 / 3^1 + 3^0 ~ 3^2 + 3^1 / 3^2 + 3^1 + 3^0 ~ 3^3 + 3^2 + 3^1 + 3^0
+    풀이 탐색 방법
+    
+    1. 124로 변경할 수가 있는 범위대를 찾는다.
     '''
-    world124 = ['1','2','4']
-    minimum, maximum = 0,0
-    cnt = 0
-    while True:
-        minimum += 3^cnt
-        cnt +=1
-        if minimum < n:
-            maximum += 3^(cnt+1) + minimum
-            break
-    temp = list(product(world124,repeat=cnt))
-    answer = ''
-    return maximum
+#     world124 = ['1','2','4']
+#     answer,world, deci = '', [], []
+#     cnt,temp = 0,0
+#     while 3**cnt < n:
+#         temp += 3**cnt
+#         cnt +=1
+#     comb = list(set(product(world124,repeat=cnt)))
+#     comb.sort()
+#     for c in comb:
+#         world.append(''.join(c))
+#     for i in range(temp,temp+3**cnt):
+#         deci.append(i)
+#     # answer+=world[deci.index(n)]
+    
+#     return world,deci,temp
 
-print(solution(11))
+# print(solution(9))
+    if n<=3:
+        return '124'[n-1]
+    else:
+        q, r = divmod(n-1, 3) 
+        return solution(q) + '124'[r]
