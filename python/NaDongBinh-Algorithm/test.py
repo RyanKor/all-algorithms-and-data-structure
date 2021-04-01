@@ -1,0 +1,21 @@
+def dfs(graph,v,visited):
+    visited[v] = True
+    print(v, end=" ")
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph,i,visited)
+graph = [
+    [], # 0번째 노드는 인덱싱을 위해 삽입
+    [2,3,8],
+    [1,7],
+    [1,4,5],
+    [3,5],
+    [3,4],
+    [7],
+    [2,6,8],
+    [1,7]
+]
+
+visited = [False] * len(graph) # 현재 노드들 중에서 방문이 아직 안된 노드들
+
+print(dfs(graph,1,visited))
