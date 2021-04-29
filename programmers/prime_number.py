@@ -1,6 +1,5 @@
 from itertools import permutations
 import math
-
 def check(n):
     k = math.sqrt(n)
     if n < 2: 
@@ -22,3 +21,4 @@ def solution(numbers):
     answer = len(set(answer))
 
     return answer
+# https://programmers.co.kr/learn/courses/30/lessons/42839
