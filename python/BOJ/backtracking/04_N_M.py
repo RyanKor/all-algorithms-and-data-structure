@@ -1,9 +1,9 @@
-import sys
-from itertools import permutations
+# import sys
+# from itertools import product
 
-# 내 정답 --> 정상 작동
+# 내 정답 --> 메모리 초과 (정답은 맞는 것 같은데, 공간 복잡도 통과가 안된 듯하다.)
 # N, M = map(int, sys.stdin.readline().split())
-# temp = list(permutations(range(1,N+1),M))
+# temp = list(product(range(1,N+1),repeat=M))
 # answer = []
 # for i in temp:
 #     arr = sorted(i)
@@ -14,7 +14,6 @@ from itertools import permutations
 #     print(*i)
 
 N, M = map(int, input().split())
-visited = [False] * N
 out = []
 
 def solve(depth, idx, N, M):
@@ -22,10 +21,8 @@ def solve(depth, idx, N, M):
         print(' '.join(map(str, out)))
         return
     for i in range(idx, N):
-        if not visited[i]:
-            visited[i] = True
-            out.append(i+1)
-            solve(depth+1, i+1, N, M)
-            visited[i] = False
-            out.pop()
+        out.append(i+1)
+        solve(depth+1, i, N, M)
+        out.pop()
+
 solve(0, 0, N, M)
