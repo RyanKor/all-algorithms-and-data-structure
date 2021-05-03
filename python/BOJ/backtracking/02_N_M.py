@@ -1,7 +1,7 @@
 import sys
 from itertools import permutations
 
-# 내 정답 --> 정상 작동
+# 내 정답 --> 정상 작동 https://www.acmicpc.net/problem/15650
 # N, M = map(int, sys.stdin.readline().split())
 # temp = list(permutations(range(1,N+1),M))
 # answer = []
